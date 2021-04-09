@@ -10,4 +10,4 @@ print('\nExecuting Unit Tests...')
 main(module='test_module', exit=False)
 
 print('\nStarting Time Calculator...\n')
-print(add_time("11:40 AM", "0:25"))
+# print(add_time("11:40 AM", "0:25"))

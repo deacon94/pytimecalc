@@ -1,6 +1,7 @@
 def add_time(start, duration, day=''):
     
     # Initialize
+    new_days = 0
     new_hrs = 0
     new_mins = 0
 
@@ -29,15 +30,23 @@ def add_time(start, duration, day=''):
     new_hrs = new_hrs + start_hrs + duration_hrs
 
     if new_hrs >= 24:
-        new_hrs = new_hrs - 24
+        new_days = round(new_hrs / 24)
+        new_hrs = new_hrs % 24
 
     if new_hrs <= 12:
-        new_period = 'AM'
+        new_period = ' AM'
     else:
-        new_period = 'PM'
+        new_period = ' PM'
         new_hrs = new_hrs - 12
 
+    if new_days == 1:
+        new_days = ' (next day)'
+    elif new_days > 1:
+        new_days = ' (' + str(new_days) + ' days later)'
+    else:
+        new_days = ''
+
     # Format new time
-    new_time = str(new_hrs) + ':' + str(new_mins).rjust(2, '0') + ' ' + new_period
+    new_time = str(new_hrs) + ':' + str(new_mins).rjust(2, '0') + new_period + new_days
 
     return new_time
