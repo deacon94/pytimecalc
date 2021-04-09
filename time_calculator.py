@@ -1,4 +1,4 @@
-def add_time(start, duration):
+def add_time(start, duration, day=''):
     
     # Initialize
     new_hrs = 0
@@ -31,7 +31,7 @@ def add_time(start, duration):
     if new_hrs >= 24:
         new_hrs = new_hrs - 24
 
-    if new_hrs < 12:
+    if new_hrs <= 12:
         new_period = 'AM'
     else:
         new_period = 'PM'
